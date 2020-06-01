@@ -9,7 +9,7 @@ Here are my notes on how to get a Letsencrypt certificate installed on an Edgero
 **Important**
 This setup is manual process and will not automatically renew the certificate.
 
-I had to do this as a manual process because my domain registrar does not support DNS API
+I had to do this as a manual process because my domain registrar does not support DNS API. You will need to create a DNS TXT record for your domain. If you cannot create a TXT record, then this guide will not work for you.
 
 You will need:
 1. A registered domain - I use hover.com
@@ -39,7 +39,15 @@ You will need:
     
 ## Part B - Request Certificate
 ### Before beginning this section, you need to decide if you will use your root domain or a subdomain.
-###### For example, mydomain.com or myrouter.mydomain.com. 
-###### I am going to assume a subdomain is being used because it will clarify common questions. If you are not using a subdomain, you can easily modify the following steps.
-1. 
-## Step 3 -
+###### For example, mydomain.com or myrouter.mydomain.com. I am going to assume a subdomain is being used because it will clarify common questions. If you are not using a subdomain, you can easily modify the following steps. Remember to substitute your subdomain and domain in place of myrouter.mydomain.com.
+1. Verify you are still in /config/auth/.acme.sh
+2. Run `acme.sh --issue --dns -d myrouter.mydomain.com`
+   - You will be shown a link to [ACME DNS manual mode](https://github.com/acmesh-official/acme.sh/wiki/dns-manual-mode). Read this if you need additional information about DNS manual mode.
+3. Next run `acme.sh --issue --dns -d myrouter.mydomain.com --yes-I-know-dns-manual-mode-enough-go-ahead-please`
+   - You will see instructions on how to edit your DNS with a TXT record.
+   - If you are not familiar with how to create a DNS TXT record, please contact your domain registrar. If you cannot create a TXT record, then this guide will not work for you.
+   - Create a TXT record named `_acme-challenge.myrouter` for mydomain.com. The value of the TXT record will come from the output from command you used in Part B, step 3.
+4. Now run `acme.sh --issue --dns -d myrouter.mydomain.com --yes-I-know-dns-manual-mode-enough-go-ahead-please --renew`
+   - Notice the `--renew` at the end of the command.
+   
+## Part C
