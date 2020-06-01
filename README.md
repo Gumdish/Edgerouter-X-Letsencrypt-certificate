@@ -1,5 +1,5 @@
 # Edgerouter - Let’s Encrypt certificate creation and installation.
-## This setup eliminates the certificate warnings on your Edgerouter and allow you to securely connect from iOS devices and all browsers that trust the Let's Encrypt root certificate.
+## This setup eliminates the certificate warnings on your Edgerouter and allows you to securely connect from iOS devices and all browsers that trust the Let's Encrypt root certificate.
 
 Here are my notes on how to get a Let’s Encrypt certificate installed on Edgerouter devices.
 
