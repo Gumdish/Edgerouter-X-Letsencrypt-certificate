@@ -1,6 +1,7 @@
-# Edgerouter X - Letsencrypt certificate creation and installation
+# Edgerouter X - Let’s Encrypt certificate creation and installation.
+# Let’s Encrypt setup to eliminate the certificate warnings on your Edgerouter
 
-Here are my notes on how to get a Letsencrypt certificate installed on an Edgerouter X devices.
+Here are my notes on how to get a Let’s Encrypt certificate installed on an Edgerouter X devices.
 
 ## References/Sources:
 [Link to Ubiquity Community](https://community.ui.com/questions/How-to-install-a-Trusted-CA-Certificate-to-the-Edgerouter-and-access-the-Edgerouter-with-an-IPad/299f4059-1d0e-4967-b5d1-1f39158d5583)
@@ -14,7 +15,7 @@ I had to do this as a manual process because my domain registrar does not suppor
 You will need:
 1. A registered domain - I use [hover.com](https://hover.evyy.net/c/2340677/660812/2799). Affiliate link. Please support the time and work I did to create this tutorial.
 2. SSH access to your Edgerouter
-3. acme.sh - A Linux bash script that handles all of the [Letsencrypt](https://github.com/acmesh-official/acme.sh) requests.
+3. acme.sh - A Linux bash script that handles all of the [Let’s Encrypt](https://github.com/acmesh-official/acme.sh) requests.
 
 ## Part A - Install acme.sh
 1. SSH to your router and navigate to `/config/auth`
