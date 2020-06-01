@@ -12,7 +12,7 @@ This setup is manual process and will not automatically renew the certificate.
 I had to do this as a manual process because my domain registrar does not support DNS API. You will need to create a DNS TXT record for your domain. If you cannot create a TXT record, then this guide will not work for you.
 
 You will need:
-1. A registered domain - I use hover.com
+1. A registered domain - I use [hover.com](https://hover.evyy.net/c/2340677/660812/2799). Affiliate link. Please support the time and work I did to create this tutorial.
 2. SSH access to your Edgerouter
 3. acme.sh - A Linux bash script that handles all of the [Letsencrypt](https://github.com/acmesh-official/acme.sh) requests.
 
