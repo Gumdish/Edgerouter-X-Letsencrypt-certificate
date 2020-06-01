@@ -49,5 +49,31 @@ You will need:
    - Create a TXT record named `_acme-challenge.myrouter` for mydomain.com. The value of the TXT record will come from the output from command you used in Part B, step 3.
 4. Now run `acme.sh --issue --dns -d myrouter.mydomain.com --yes-I-know-dns-manual-mode-enough-go-ahead-please --renew`
    - Notice the `--renew` at the end of the command.
+5. The acme.sh script will create multiple files in a new directory.
+   - The directory will be named myrouter.mydomain.com
+   - The files we need are:
+     - fullchain.cer
+     - myrouter.mydomain.com.cer
+     - myrouter.mydomain.com.key
    
-## Part C
+## Part C - Install Certificate
+1. Navigate to `/config/auth/.acme.sh/myrouter.mydomain.com`
+2. Combine the three files into a new file named `server.pem`. The file must be named `server.pem`.
+   - Run `cat myrouter.mydomain.com.key myrouter.mydomain.com.cer fullchain.cer > server.pem
+3. Backup your existing server.pem
+   - `cp /etc/lighttpd/server.pem /etc/lighttpd/server.pem.old`
+4. Copy new server.pem
+   - `cp /config/auth/.acme.sh/myrouter.mydomain.com/server.pem /etc/lighttpd/server.pem`
+5. Restart lighttpd
+   - `sudo kill -SIGTERM $(cat /var/run/lighttpd.pid)`
+   - `sudo /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf`
+   - If you see an error after restarting lighttpd, you can copy server.pem.old back to server.pem and restart lighttpd. Something may be wrong in your certificates that caused the server to fail to start.
+   
+## Part D - Renew Certificate (Every 89 days)
+1. Navigate to `/config/auth/.acme.sh`
+2. Run `acme.sh --issue --dns -d myrouter.mydomain.com --yes-I-know-dns-manual-mode-enough-go-ahead-please`
+3. Edit your TXT record and save the new string provided from the previous step
+4. Run `acme.sh --issue --dns -d myrouter.mydomain.com --yes-I-know-dns-manual-mode-enough-go-ahead-please --renew`
+5. Repeat steps 2, 4 and 5 from Part C
+
+
