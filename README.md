@@ -1,7 +1,7 @@
-# Edgerouter X - Let’s Encrypt certificate creation and installation.
-# Let’s Encrypt setup to eliminate the certificate warnings on your Edgerouter
+# Edgerouter - Let’s Encrypt certificate creation and installation.
+## This setup eliminates the certificate warnings on your Edgerouter and allow you to securely connect from iOS devices and all browsers that trust the Let's Encrypt root certificate.
 
-Here are my notes on how to get a Let’s Encrypt certificate installed on an Edgerouter X devices.
+Here are my notes on how to get a Let’s Encrypt certificate installed on Edgerouter devices.
 
 ## References/Sources:
 [Link to Ubiquity Community](https://community.ui.com/questions/How-to-install-a-Trusted-CA-Certificate-to-the-Edgerouter-and-access-the-Edgerouter-with-an-IPad/299f4059-1d0e-4967-b5d1-1f39158d5583)
